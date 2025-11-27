@@ -1,11 +1,17 @@
 package com.cemware.lavine.entity;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "task_groups")
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Group {
 
     @Id
@@ -22,15 +28,8 @@ public class Group {
     @OneToMany(mappedBy = "group", orphanRemoval = true)
     private List<Task> tasks = new ArrayList<>();
 
-    protected Group() { }
-
     public Group(User user, String name) {
         this.user = user;
         this.name = name;
     }
-
-    public Long getId() { return id; }
-    public User getUser() { return user; }
-    public String getName() { return name; }
-    public List<Task> getTasks() { return tasks; }
 }

@@ -1,9 +1,14 @@
 package com.cemware.lavine.entity;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "tasks")
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Task {
 
     @Id
@@ -24,18 +29,17 @@ public class Task {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    protected Task() { }
-
     public Task(String title, Group group, User user) {
         this.title = title;
         this.group = group;
         this.user = user;
     }
 
-    public Long getId() { return id; }
-    public String getTitle() { return title; }
-    public boolean isDone() { return done; }
-    public Group getGroup() { return group; }
-    public User getUser() { return user; }
-}
+    public void markDone() {
+        this.done = true;
+    }
 
+    public void markUndone() {
+        this.done = false;
+    }
+}
