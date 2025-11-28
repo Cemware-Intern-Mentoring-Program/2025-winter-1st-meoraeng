@@ -2,6 +2,7 @@ package com.cemware.lavine.entity;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -29,6 +30,7 @@ public class Task {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
+    @Builder
     public Task(String title, Group group, User user) {
         this.title = title;
         this.group = group;
