@@ -5,13 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d4d92dab-dc15-4753-bf61-19e202b2b01c" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/docs/2-1/1.api.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/2-1/2.REST_API.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/2-1/3.serialize.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/2-1/4.ResponseEntity.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/2-1/5.common.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/2-1/img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/lavine.main.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules/lavine.test.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/cemware/lavine/controller/GroupController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/cemware/lavine/controller/TaskController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/cemware/lavine/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/cemware/lavine/dto/GroupCreateRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/cemware/lavine/dto/GroupResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/cemware/lavine/dto/GroupUpdateRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/cemware/lavine/dto/TaskCreateRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/cemware/lavine/dto/TaskResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/cemware/lavine/dto/TaskUpdateRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/cemware/lavine/dto/UserCreateRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/cemware/lavine/dto/UserResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/cemware/lavine/dto/UserUpdateRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/cemware/lavine/exception/ErrorMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/cemware/lavine/service/GroupService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/cemware/lavine/service/TaskService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/cemware/lavine/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/cemware/lavine/entity/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/cemware/lavine/entity/Task.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,9 +42,22 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$/app">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="lavine" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="lavine" type="f1a62948:ProjectNode" />
+                <item name="실행 구성" type="7b0102dc:RunConfigurationsNode" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -59,34 +88,58 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.app 빌드.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.LavineApplication.executor": "Run",
-    "git-widget-placeholder": "lavine",
-    "ignore.virus.scanning.warn.message": "true",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "G:/github/cemware",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.editor",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.app [dependencies].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.app 빌드.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.소스 다운로드.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.LavineApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;lavine&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;G:/github/cemware&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager">
+}</component>
+  <component name="RunManager" selected="Spring Boot.LavineApplication">
+    <configuration name="app [dependencies]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="dependencies" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration name="LavineApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="lavine.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.cemware.lavine.LavineApplication" />
@@ -94,6 +147,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.app [dependencies]" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -116,11 +174,17 @@
       <workItem from="1764241463819" duration="4131000" />
       <workItem from="1764350190925" duration="266000" />
       <workItem from="1764493886144" duration="936000" />
-      <workItem from="1764495030751" duration="7446000" />
+      <workItem from="1764495030751" duration="11491000" />
+      <workItem from="1764506893219" duration="313000" />
+      <workItem from="1764507216823" duration="742000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

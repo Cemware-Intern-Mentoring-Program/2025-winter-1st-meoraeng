@@ -44,4 +44,11 @@ public class Task {
     public void markUndone() {
         this.done = false;
     }
+
+    public void changeTitle(String title) {
+        if(title == null || title.isBlank()) {
+            throw new IllegalArgumentException("제목이 비어있습니다.");
+        }
+        this.title = title;
+    }
 }
