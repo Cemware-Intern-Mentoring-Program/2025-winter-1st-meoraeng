@@ -34,7 +34,7 @@ public class TaskController {
         TaskResponse response = taskService.createTask(request);
         return ResponseEntity
                 .status(HttpStatus.CREATED)
-                .header("Location", "/tasks/" + response.getId())
+                .header("Location", "/tasks/" + response.id())
                 .body(response);
     }
 

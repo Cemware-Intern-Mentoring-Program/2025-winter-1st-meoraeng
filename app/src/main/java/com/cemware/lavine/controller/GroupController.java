@@ -33,7 +33,7 @@ public class GroupController {
         GroupResponse response = groupService.createGroup(request);
         return ResponseEntity
                 .status(HttpStatus.CREATED)
-                .header("Location", "/groups/" + response.getId())
+                .header("Location", "/groups/" + response.id())
                 .body(response);
     }
 

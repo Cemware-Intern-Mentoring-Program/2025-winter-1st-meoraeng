@@ -36,7 +36,7 @@ public class UserController {
         UserResponse response = userService.createUser(request);
         return ResponseEntity
                 .status(HttpStatus.CREATED)
-                .header("Location", "/users/" + response.getId())
+                .header("Location", "/users/" + response.id())
                 .body(response);
     }
 

@@ -3,11 +3,10 @@ package com.cemware.lavine.service;
 import com.cemware.lavine.dto.GroupCreateRequest;
 import com.cemware.lavine.dto.GroupResponse;
 import com.cemware.lavine.dto.GroupUpdateRequest;
-import com.cemware.lavine.dto.TaskResponse;
 import com.cemware.lavine.entity.Group;
-import com.cemware.lavine.entity.Task;
 import com.cemware.lavine.entity.User;
 import com.cemware.lavine.exception.ErrorMessage;
+import com.cemware.lavine.mapper.TaskMapper;
 import com.cemware.lavine.repository.GroupRepository;
 import com.cemware.lavine.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -24,48 +23,38 @@ public class GroupService {
     private final GroupRepository groupRepository;
     private final UserRepository userRepository;
 
-    private TaskResponse toTaskResponse(Task task) {
-        return TaskResponse.builder()
-                .id(task.getId())
-                .title(task.getTitle())
-                .done(task.isDone())
-                .groupId(task.getGroup().getId())
-                .userId(task.getUser().getId())
-                .build();
-    }
-
     @Transactional
     public GroupResponse createGroup(GroupCreateRequest request) {
-        User user = userRepository.findById(request.getUserId())
-                .orElseThrow(() -> new IllegalArgumentException(ErrorMessage.userNotFound(request.getUserId())));
+        User user = userRepository.findById(request.userId())
+                .orElseThrow(() -> new IllegalArgumentException(ErrorMessage.userNotFound(request.userId())));
         
-        Group group = new Group(user, request.getName());
+        Group group = new Group(user, request.name());
         Group savedGroup = groupRepository.save(group);
         
-        return GroupResponse.builder()
-                .id(savedGroup.getId())
-                .name(savedGroup.getName())
-                .userId(savedGroup.getUser().getId())
-                .tasks(savedGroup.getTasks().stream()
-                        .map(this::toTaskResponse)
-                        .collect(Collectors.toList()))
-                .build();
+        return new GroupResponse(
+                savedGroup.getId(),
+                savedGroup.getName(),
+                savedGroup.getUser().getId(),
+                savedGroup.getTasks().stream()
+                        .map(TaskMapper::toTaskResponse)
+                        .collect(Collectors.toList())
+        );
     }
 
     @Transactional
     public GroupResponse updateGroup(Long id, GroupUpdateRequest request) {
         Group group = groupRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException(ErrorMessage.groupNotFound(id)));
-        group.changeName(request.getName());
+        group.changeName(request.name());
         
-        return GroupResponse.builder()
-                .id(group.getId())
-                .name(group.getName())
-                .userId(group.getUser().getId())
-                .tasks(group.getTasks().stream()
-                        .map(this::toTaskResponse)
-                        .collect(Collectors.toList()))
-                .build();
+        return new GroupResponse(
+                group.getId(),
+                group.getName(),
+                group.getUser().getId(),
+                group.getTasks().stream()
+                        .map(TaskMapper::toTaskResponse)
+                        .collect(Collectors.toList())
+        );
     }
 
     @Transactional
@@ -80,14 +69,14 @@ public class GroupService {
         Group group = groupRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException(ErrorMessage.groupNotFound(id)));
         
-        return GroupResponse.builder()
-                .id(group.getId())
-                .name(group.getName())
-                .userId(group.getUser().getId())
-                .tasks(group.getTasks().stream()
-                        .map(this::toTaskResponse)
-                        .collect(Collectors.toList()))
-                .build();
+        return new GroupResponse(
+                group.getId(),
+                group.getName(),
+                group.getUser().getId(),
+                group.getTasks().stream()
+                        .map(TaskMapper::toTaskResponse)
+                        .collect(Collectors.toList())
+        );
     }
 }
 

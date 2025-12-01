@@ -8,6 +8,7 @@ import com.cemware.lavine.entity.Group;
 import com.cemware.lavine.entity.Task;
 import com.cemware.lavine.entity.User;
 import com.cemware.lavine.exception.ErrorMessage;
+import com.cemware.lavine.mapper.TaskMapper;
 import com.cemware.lavine.repository.GroupRepository;
 import com.cemware.lavine.repository.TaskRepository;
 import com.cemware.lavine.repository.UserRepository;
@@ -24,31 +25,21 @@ public class TaskService {
     private final GroupRepository groupRepository;
     private final UserRepository userRepository;
 
-    private TaskResponse toTaskResponse(Task task) {
-        return TaskResponse.builder()
-                .id(task.getId())
-                .title(task.getTitle())
-                .done(task.isDone())
-                .groupId(task.getGroup().getId())
-                .userId(task.getUser().getId())
-                .build();
-    }
-
     @Transactional
     public TaskResponse createTask(TaskCreateRequest request) {
-        Group group = groupRepository.findById(request.getGroupId())
-                .orElseThrow(() -> new IllegalArgumentException(ErrorMessage.groupNotFound(request.getGroupId())));
-        User user = userRepository.findById(request.getUserId())
-                .orElseThrow(() -> new IllegalArgumentException(ErrorMessage.userNotFound(request.getUserId())));
+        Group group = groupRepository.findById(request.groupId())
+                .orElseThrow(() -> new IllegalArgumentException(ErrorMessage.groupNotFound(request.groupId())));
+        User user = userRepository.findById(request.userId())
+                .orElseThrow(() -> new IllegalArgumentException(ErrorMessage.userNotFound(request.userId())));
         
         Task task = Task.builder()
-                .title(request.getTitle())
+                .title(request.title())
                 .group(group)
                 .user(user)
                 .build();
         
         Task savedTask = taskRepository.save(task);
-        return toTaskResponse(savedTask);
+        return TaskMapper.toTaskResponse(savedTask);
     }
 
     @Transactional
@@ -56,8 +47,8 @@ public class TaskService {
         Task task = taskRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException(ErrorMessage.taskNotFound(id)));
         
-        task.changeTitle(request.getTitle());
-        return toTaskResponse(task);
+        task.changeTitle(request.title());
+        return TaskMapper.toTaskResponse(task);
     }
 
     @Transactional
@@ -65,13 +56,13 @@ public class TaskService {
         Task task = taskRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException(ErrorMessage.taskNotFound(id)));
         
-        if (request.getDone()) { 
+        if (request.done()) { 
             task.markDone();
-            return toTaskResponse(task);
+            return TaskMapper.toTaskResponse(task);
         }
         
         task.markUndone();
-        return toTaskResponse(task);
+        return TaskMapper.toTaskResponse(task);
     }
 
     @Transactional
@@ -84,7 +75,7 @@ public class TaskService {
     public TaskResponse getTask(Long id) {
         Task task = taskRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException(ErrorMessage.taskNotFound(id)));
-        return toTaskResponse(task);
+        return TaskMapper.toTaskResponse(task);
     }
 }
 
