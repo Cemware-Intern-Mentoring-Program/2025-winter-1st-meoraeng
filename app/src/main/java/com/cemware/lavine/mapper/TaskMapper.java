@@ -5,7 +5,10 @@ import com.cemware.lavine.entity.Task;
 
 public class TaskMapper {
     
-    public TaskResponse toTaskResponse(Task task) {
+    private TaskMapper() {
+    }
+    
+    public static TaskResponse toTaskResponse(Task task) {
         return new TaskResponse(
                 task.getId(),
                 task.getTitle(),
