@@ -56,17 +56,16 @@ public class SecurityConfig {
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 
                 // 요청 URL별 인증/인가 설정
-                .authorizeHttpRequests(auth -> auth                 
+                .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
-                                "/auth/**",
-                                "/users/**",
-                                "/groups/**",
-                                "/tasks/**"
+                                "/auth/**"
                         ).permitAll()
                         
-                        // 나머지 요청은 인증 필요
                         .anyRequest().authenticated()
-                );
+                )
+                
+                .authenticationProvider(authenticationProvider())
+                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
